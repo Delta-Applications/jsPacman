@@ -19,6 +19,11 @@ class Keyboard extends View {
     }
 
     onKeyUp(event) {
+        if (event.keyCode == 50) event.keyCode = KEY_UP;
+        if (event.keyCode == 54) event.keyCode = KEY_RIGHT;
+        if (event.keyCode == 56) event.keyCode = KEY_DOWN;
+        if (event.keyCode == 52) event.keyCode = KEY_LEFT;
+
         this.keys[event.keyCode] = false;
         this.emit(EVENT_KEY_UP, event);
     }

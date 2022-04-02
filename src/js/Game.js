@@ -107,6 +107,7 @@ class JsPacman extends Game {
     }
 
     startLevel() {
+        this._started = true
         if (this._win) {
             this.model.level++;
             this.reset();
@@ -626,6 +627,7 @@ class JsPacman extends Game {
 
     _onKeyDown(event) {
         // Sound on/off.
+        console.log(event)
         if (event.keyCode === 83) {
             if (!this.soundEnabled) return;
             // Mute Sound.
@@ -643,7 +645,8 @@ class JsPacman extends Game {
             this._hideSoundStatusTimeout = setTimeout(function() { hide(el); }, 2000);
         }
         // Pause Game.
-        else if (event.keyCode === 80) {
+        else if (event.keyCode === 13) {
+            if (!this._started) return this.startLevel();
             this._paused = !this._paused;
             if (this._paused) this.pause();
             else this.resume();
@@ -707,8 +710,8 @@ class JsPacman extends Game {
                 <p class="nerd">HTML - CSS<br><br><span>JAVASCRIPT</span></p>
                 <a class="start" style="display: none">START</a>
                 <div class="loadbar"><div class="inner"></div></div>
-                <p class="keys"><span>&larr;&uarr;&darr;&rarr;</span>:MOVE <span>S</span>:SOUND <span>P</span>:PAUSE</p>
-                <div class="credits">&#169; 2014-2020 <span>8</span>TENTACULOS <a href="https://github.com/8tentaculos/jsPacman">SOURCE+INFO</a></div>
+                <p class="keys"><span>&larr;&uarr;&darr;&rarr;</span>:MOVE <span>0</span>:SOUND <span>ENTER</span>:PAUSE</p>
+                <!--<div class="credits">&#169; 2014-2020 <span>8</span>TENTACULOS <a href="https://github.com/8tentaculos/jsPacman">SOURCE+INFO</a></div>-->
             </div>
         `;
     }
