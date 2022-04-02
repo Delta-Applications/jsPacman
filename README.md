@@ -1,6 +1,6 @@
 ![Artwork](./src/img/stuff/art.png)
 
-jsPacman
+jsPacman !! Being edited for KaiOS !!
 ========
 
 jsPacman is a HTML5 / JavaScript DOM based remake of the classic [Ms. Pac-Man](https://en.wikipedia.org/wiki/Ms._Pac-Man) game.
